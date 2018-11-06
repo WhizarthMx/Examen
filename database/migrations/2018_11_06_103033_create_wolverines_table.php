@@ -15,7 +15,6 @@ class CreateWolverinesTable extends Migration
     {
         Schema::create('wolverines', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('nombre');
             $table->string('genero');
             $table->string('color');
