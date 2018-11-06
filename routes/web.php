@@ -31,6 +31,43 @@ Route::get('VerWol', function () {
 });
 
 
+Route::get('VerWol', function () {
+
+    $tab1 = DB::table('wolverines')->get();
+    $tab2 = DB::table('chimpanzes')->get();
+    $tab3 = DB::table('ibexes')->get();
+
+    return $tab1;
+
+    return $tab2;
+    return $tab3;
+});
+
+$table->string('nombre');
+$table->string('genero');
+$table->string('color');
+$table->unsignedInteger('edad');
+$table->unsignedInteger('animal_id');
+
+Route::post('wol/add',function(Request $request){
+    $wolverines = new wolverine() ;
+    $wolverines->nombre = $request-> input('nombre');
+    $wolverines->genero = $request-> input('genero');
+    $wolverines->color = $request-> input('color');
+    $wolverines->edad = $request-> input('edad');
+    $wolverines->animal_id = $request-> input('animal_id');
+    $wolverines->save();
+
+    echo 'La ID' .$wolverines;
+});
+
+
+
+
+
+
+
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
