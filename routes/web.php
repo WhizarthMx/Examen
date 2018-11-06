@@ -23,8 +23,8 @@ Route::get('VerWol', function () {
     $tab1 = DB::table('wolverines')->get();
     $tab2 = DB::table('chimpanzes')->get();
 
-
-    return $tab1.$tab2;
+    return $tab1;
+    return$tab2;
 });
 
 
