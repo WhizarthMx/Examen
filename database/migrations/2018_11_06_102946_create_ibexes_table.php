@@ -21,6 +21,7 @@ class CreateIbexesTable extends Migration
             $table->string('color');
             $table->unsignedInteger('edad');
             $table->unsignedInteger('animal_id');
+            $table->timestamps();
 
         });
     }
