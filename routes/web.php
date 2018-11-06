@@ -34,7 +34,7 @@ Route::get('VerWol', function () {
 
 
 
-Route::get('Ver Todos', function () {
+Route::get('VerTodos', function () {
     $tab1 = DB::table('chimpanzes')->get();
     $tab2 = DB::table('hyenas')->get();
     $tab3 = DB::table('ibexes')->get();
