@@ -43,11 +43,6 @@ Route::get('VerWol', function () {
     return $tab3;
 });
 
-$table->string('nombre');
-$table->string('genero');
-$table->string('color');
-$table->unsignedInteger('edad');
-$table->unsignedInteger('animal_id');
 
 Route::post('wol/add',function(Request $request){
     $wolverines = new wolverine() ;
