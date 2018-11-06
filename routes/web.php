@@ -47,7 +47,7 @@ Route::get('VerTodos', function () {
 
 
 Route::post('wol/add',function(Request $request){
-    $wolverines = new App/wolverine() ;
+    $wolverines = new App/wolverine ;
     $wolverines->nombre = $request-> input('nombre');
     $wolverines->genero = $request-> input('genero');
     $wolverines->color = $request-> input('color');
