@@ -20,7 +20,11 @@ Auth::routes();
 
 Route::get('VerWol', function () {
 
-    return DB::table('wolverines')->get();
+    $tab1 = DB::table('wolverines')->get();
+    $tab2 = DB::table('chimpanzes')->get();
+
+
+    return tab1.tab2;
 });
 
 
