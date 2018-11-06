@@ -1,4 +1,12 @@
 <?php
+use Illuminate\Http\Request;
+use App\wolverine;
+use App\marten;
+use App\ibex;
+use App\hyena;
+use App\chimpanze;
+use App\budgeringar;
+use App\Animal;
 
 /*
 |--------------------------------------------------------------------------
