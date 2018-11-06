@@ -18,29 +18,31 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::get('VerChim', function () {
+    $tab1 = DB::table('chimpanzes')->get();
+    return $tab1;
+});
+
 Route::get('VerWol', function () {
 
     $tab1 = DB::table('wolverines')->get();
-    $tab2 = DB::table('chimpanzes')->get();
-    $tab3 = DB::table('ibexes')->get();
 
     return $tab1;
-    return $tab2;
-    return $tab3;
-
 });
 
 
-Route::get('VerWol', function () {
 
-    $tab1 = DB::table('wolverines')->get();
-    $tab2 = DB::table('chimpanzes')->get();
+
+
+Route::get('Ver Todos', function () {
+    $tab1 = DB::table('chimpanzes')->get();
+    $tab2 = DB::table('hyenas')->get();
     $tab3 = DB::table('ibexes')->get();
+    $tab4 = DB::table('budgeringars')->get();
+    $tab5 = DB::table('wolverines')->get();
+    $tab6 = DB::table('martens')->get();
 
-    return $tab1;
-
-    return $tab2;
-    return $tab3;
+    return $tab1.$tab2.$tab3.$tab4.$tab5.$tab6;
 });
 
 
