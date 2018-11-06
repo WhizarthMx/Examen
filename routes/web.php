@@ -22,9 +22,12 @@ Route::get('VerWol', function () {
 
     $tab1 = DB::table('wolverines')->get();
     $tab2 = DB::table('chimpanzes')->get();
+    $tab3 = DB::table('ibexes')->get();
 
     return $tab1;
-    return$tab2;
+    return $tab2;
+    return $tab3;
+
 });
 
 
