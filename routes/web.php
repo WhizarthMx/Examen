@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('VerWol', function () {
+
+    return DB::table('wolverines')->get();
+});
+
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
