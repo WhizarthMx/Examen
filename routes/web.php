@@ -63,7 +63,7 @@ Route::post('wol/add',function(Request $request){
     $wolverines->animal_id = $request-> input('animal_id');
     $wolverines->save();
 
-    echo 'La ID' .$wolverines;
+    echo 'La ID ' .$wolverines;
 });
 
 
