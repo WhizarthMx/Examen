@@ -54,6 +54,22 @@ Route::get('VerTodos', function () {
 });
 
 
+
+
+/////  Wolverines ///////
+
+Route::put('wol/update/{id}',function(Request $request , $id){
+    $wolverines = wolverine::find($id);
+    $wolverines->nombre = $request-> input('nombre');
+    $wolverines->genero = $request-> input('genero');
+    $wolverines->color = $request-> input('color');
+    $wolverines->edad = $request-> input('edad');
+    $wolverines->animal_id = $request-> input('animal_id');
+    $wolverines->save();
+
+    echo 'La ID ' .$wolverines;
+});
+
 Route::post('wol/add',function(Request $request){
     $wolverines = new wolverine ;
     $wolverines->nombre = $request-> input('nombre');
