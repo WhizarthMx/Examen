@@ -50,6 +50,36 @@ Route::get('VerTodos', function () {
     return $tab1.$tab2.$tab3.$tab4.$tab5.$tab6;
 });
 
+/// ibex ///
+Route::get('Veribex', function () {
+    $tab1 = DB::table('ibexes')->get();
+    return $tab1;
+});
+
+Route::post('ibex/add',function(Request $request){
+    $ibexes = new ibex ;
+    $ibexes->nombre = $request-> input('nombre');
+    $ibexes->genero = $request-> input('genero');
+    $ibexes->color = $request-> input('color');
+    $ibexes->edad = $request-> input('edad');
+    $ibexes->animal_id = $request-> input('animal_id');
+    $ibexes->save();
+    echo 'La ID ' .$ibexes;
+});
+
+Route::put('Hyena/update/{id}' , function (Request $request , $id){
+    $ibexes = ibex::find($id);
+    $ibexes->nombre = $request-> input('nombre');
+    $ibexes->genero = $request-> input('genero');
+    $ibexes->color = $request-> input('color');
+    $ibexes->edad = $request-> input('edad');
+    $ibexes->animal_id = $request-> input('animal_id');
+    $ibexes->save();
+    echo 'La ID ' .$ibexes;
+});
+
+
+
 
 /// hyena ///
 
@@ -195,8 +225,8 @@ Route::get('/wol/delete/{id}', function ($id) {
 });
 
 Route::get('/wol/search/{id}', function ($id) {
-   $tb = wolverine::table($id)->get();
-    return $tb;
+   wolverine::find($id);
+
 });
 
 
