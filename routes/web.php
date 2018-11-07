@@ -195,7 +195,7 @@ Route::get('/wol/delete/{id}', function ($id) {
 });
 
 Route::get('/wol/search/{id}', function ($id) {
-   $tb = db::table($id)->get();
+   $tb = wolverine::table($id)->get();
     return $tb;
 });
 
