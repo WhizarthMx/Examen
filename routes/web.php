@@ -225,7 +225,7 @@ Route::get('/wol/delete/{id}', function ($id) {
 });
 
 Route::get('/wol/search/{id}', function ($id) {
-   $sh= wolverines::find($id);
+   $sh= App\wolverine::find($id);
     return $sh;
 });
 
