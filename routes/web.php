@@ -58,7 +58,7 @@ Route::get('VerTodos', function () {
 
 /////  Wolverines ///////
 
-Route::put('wol/update/{id}',function(Request $request , $id){
+Route::put('wol/update/{id}' , function (Request $request , $id){
     $wolverines = wolverine::find($id);
     $wolverines->nombre = $request-> input('nombre');
     $wolverines->genero = $request-> input('genero');
@@ -82,6 +82,12 @@ Route::post('wol/add',function(Request $request){
     echo 'La ID ' .$wolverines;
 });
 
+
+
+Route::get('/wol/delete/{id}', function ($id) {
+    wolverine::destroy($id);
+    return 'wolverine'.$id.' deleted';
+});
 
 
 
