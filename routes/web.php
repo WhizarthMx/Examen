@@ -50,6 +50,46 @@ Route::get('VerTodos', function () {
     return $tab1.$tab2.$tab3.$tab4.$tab5.$tab6;
 });
 
+///Marten///
+Route::get('Vermart', function () {
+    $tab1 = DB::table('martens')->get();
+    return $tab1;
+});
+
+Route::post('Mart/add',function(Request $request){
+    $martens = new marten;
+    $martens->nombre = $request-> input('nombre');
+    $martens->genero = $request-> input('genero');
+    $martens->color = $request-> input('color');
+    $martens->edad = $request-> input('edad');
+    $martens->animal_id = $request-> input('animal_id');
+    $martens->save();
+    echo 'La ID ' .$martens;
+});
+
+Route::put('Mart/update/{id}' , function (Request $request , $id){
+    $martens = marten::find($id);
+    $martens->nombre = $request-> input('nombre');
+    $martens->genero = $request-> input('genero');
+    $martens->color = $request-> input('color');
+    $martens->edad = $request-> input('edad');
+    $martens->animal_id = $request-> input('animal_id');
+    $martens->save();
+    echo 'La ID ' .$martens;
+});
+
+
+Route::get('Mart/delete/{id}', function ($id) {
+    marten::destroy($id);
+    return 'marten'.$id.' deleted';
+});
+
+Route::get('/Mart/search/{id}', function ($id) {
+    $sh= App\marten::find($id);
+    return $sh;
+});
+
+
 /// ibex ///
 Route::get('Veribex', function () {
     $tab1 = DB::table('ibexes')->get();
@@ -67,7 +107,7 @@ Route::post('ibex/add',function(Request $request){
     echo 'La ID ' .$ibexes;
 });
 
-Route::put('Hyena/update/{id}' , function (Request $request , $id){
+Route::put('ibex/update/{id}' , function (Request $request , $id){
     $ibexes = ibex::find($id);
     $ibexes->nombre = $request-> input('nombre');
     $ibexes->genero = $request-> input('genero');
@@ -79,6 +119,15 @@ Route::put('Hyena/update/{id}' , function (Request $request , $id){
 });
 
 
+Route::get('ibex/delete/{id}', function ($id) {
+    ibex::destroy($id);
+    return 'ibex'.$id.' deleted';
+});
+
+Route::get('/ibex/search/{id}', function ($id) {
+    $sh= App\ibex::find($id);
+    return $sh;
+});
 
 
 /// hyena ///
@@ -116,6 +165,12 @@ Route::get('Hyena/delete/{id}', function ($id) {
     return 'hyenas'.$id.' deleted';
 });
 
+Route::get('/Hyena/search/{id}', function ($id) {
+    $sh= App\hyena::find($id);
+    return $sh;
+});
+
+
 
 //// chimpanze /////
 
@@ -152,6 +207,13 @@ Route::get('Chimp/delete/{id}', function ($id) {
     return 'chimpanze'.$id.' deleted';
 });
 
+Route::get('/Chimp/search/{id}', function ($id) {
+    $sh= App\chimpanze::find($id);
+    return $sh;
+});
+
+
+
 
  //// Budgeringar ////
 Route::get('VerBudg', function () {
@@ -185,6 +247,12 @@ Route::get('/Budg/delete/{id}', function ($id) {
     budgeringar::destroy($id);
     return 'Budgeringar'.$id.' deleted';
 });
+
+Route::get('/Budg/search/{id}', function ($id) {
+    $sh= App\budgeringar::find($id);
+    return $sh;
+});
+
 
 /////  Wolverines ///////
 
@@ -228,10 +296,6 @@ Route::get('/wol/search/{id}', function ($id) {
    $sh= App\wolverine::find($id);
     return $sh;
 });
-
-
-
-
 
 
 
